@@ -15,3 +15,10 @@ if evt_code > 0 and evt_code != idc.PROCESS_EXITED:
     evt_ea = idc.get_event_ea()
     print("Stepped Into : ", hex(evt_ea),idc.generate_disasm_line(evt_ea,0))
 
+#### Step Over
+# Next Instruction
+idc.step_over()
+evt_code = idc.wait_for_next_event(WFNE_SUSP, -1)
+if evt_code > 0 and evt_code != idc.PROCESS_EXITED:
+    evt_ea = idc.get_event_ea()
+    print("Stepped Into : ", hex(evt_ea),idc.generate_disasm_line(evt_ea,0))
